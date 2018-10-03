@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+
+    webserver:
+        build: 
+            context: .docker/        
+            args:
+                phpversion: '7.0' # Choisir la version de php 5.6 / 7.0 / 7.1 / 7.2
+                xdebug: 'false'
+        container_name: vigicorp-web
+        working_dir: /application
+        volumes:
+            - .:/application
+        ports:
+            - "22:22"
+            - "80:80"
